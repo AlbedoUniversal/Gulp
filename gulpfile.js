@@ -52,4 +52,4 @@ gulp.task('watch', function() {
   gulp.watch('./dist/*.html', gulp.parallel('code'));
 });
 
-gulp.task('default', gulp.parallel('styles', 'scripts', 'code', 'server', 'watch'));
+gulp.task('default', gulp.parallel('server', 'watch'));
