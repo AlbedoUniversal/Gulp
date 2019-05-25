@@ -23,10 +23,10 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src([ './src/js/libs/**/*.js', './src/js/main.js' ])
+  return gulp.src([ './src/js/jquery-3.2.1.slim.min.js', './src/js/libs/*.js', './src/js/main.js' ])
         .pipe(concat('main.js'))
-        .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./dist/js'))
         .pipe(browserSync.reload({ stream: true }));
 });
