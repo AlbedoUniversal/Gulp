@@ -1,6 +1,7 @@
 const gulp         = require('gulp'),
       plumber      = require('gulp-plumber'),
-      less         = require('gulp-less'),
+      // less         = require('gulp-less'),
+      sass         = require('gulp-sass'), 
       autoprefixer = require('gulp-autoprefixer'),
       concat       = require('gulp-concat'),
       cleanCSS     = require('gulp-clean-css'),
@@ -13,8 +14,8 @@ const gulp         = require('gulp'),
 
 
 gulp.task('styles', function() {
-  return gulp.src('./src/less/main.less')
-        .pipe(less())
+  return gulp.src('./src/sass/main.scss')
+        .pipe(sass())
         .pipe(autoprefixer())
         .pipe(rename({ suffix: '.min' }))
         .pipe(cleanCSS())
@@ -47,7 +48,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/less/**/*.less', gulp.parallel('styles'));
+  gulp.watch('./src/sass/**/*.scss', gulp.parallel('styles'));
   gulp.watch('./src/js/**/*.js', gulp.parallel('scripts'));
   gulp.watch('./dist/*.html', gulp.parallel('code'));
 });
